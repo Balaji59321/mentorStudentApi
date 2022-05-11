@@ -23,6 +23,6 @@ app.use((err, req, res, next) => {
   res.send({ code: 404, message: "" + err.toString().split(":")[1].trim() });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server Connection Established Successfully");
 });

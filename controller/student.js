@@ -7,7 +7,7 @@ module.exports.getUser = async (req, res, next) => {
     let resp = await mongo.current.collection("student").find({}).toArray();
     res.send(resp);
   } catch (err) {
-    res.send("Error", err);
+    res.send(err);
   }
 };
 
@@ -18,7 +18,7 @@ module.exports.createUser = async (req, res, next) => {
       resp.insertedId &&
       res.send({ code: 200, message: "Created Successfully" });
   } catch (err) {
-    res.send("Error", err);
+    res.send(err);
   }
 };
 
@@ -29,7 +29,7 @@ module.exports.deleteUser = async (req, res, next) => {
       .deleteOne({ id: +req.params.id });
     res.send(resp);
   } catch (err) {
-    res.send("Error", err);
+    res.send("Error" + err);
   }
 };
 
@@ -50,6 +50,6 @@ module.exports.updateUser = async (req, res, next) => {
     );
     res.send(resp);
   } catch (err) {
-    res.send("Error", err);
+    res.send("Error" + err);
   }
 };
