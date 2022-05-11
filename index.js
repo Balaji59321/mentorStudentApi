@@ -23,6 +23,6 @@ app.use((err, req, res, next) => {
   res.send({ code: 404, message: "" + err.toString().split(":")[1].trim() });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.config, () => {
   console.log("Server Connection Established Successfully");
 });

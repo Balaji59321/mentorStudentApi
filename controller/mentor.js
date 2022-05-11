@@ -23,6 +23,7 @@ module.exports.updateMentor = async (req, res, next) => {
 module.exports.listMentor = async (req, res, next) => {
   try {
     const resp = await mongo.current.collection("mentor").find().toArray();
+    console.log(resp);
     res.send(
       resp.length > 0
         ? resp
