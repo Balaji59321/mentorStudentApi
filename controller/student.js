@@ -39,7 +39,7 @@ module.exports.updateUser = async (req, res, next) => {
       .collection("student")
       .updateOne(
         { id: +req.params.id },
-        { $set: { id: +req.body.id, ...req.body } }
+        { $set: { id: +req.params.id, ...req.body } }
       );
     console.log(resp);
     console.log(
