@@ -137,6 +137,12 @@ module.exports.updateMultipleStudent = async (req, res, next) => {
       .collection("student")
       .find({ id: { $in: students } })
       .toArray();
+    if (!students.length === print.length) {
+      res.send({
+        message: "Please Pass valid student",
+      });
+      return;
+    }
     if (print.filter((ele) => ele?.mentor).length > 0) {
       res.send({
         message: "All student / any one student has a mentor assigned",
