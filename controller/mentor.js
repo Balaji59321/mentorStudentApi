@@ -131,13 +131,15 @@ module.exports.getStudentByMentor = async (req, res, next) => {
 };
 
 module.exports.updateMultipleStudent = async (req, res, next) => {
+  console.log("tet");
   try {
     let students = req.body.student;
     let print = await mongo.current
       .collection("student")
       .find({ id: { $in: students } })
       .toArray();
-    if (!students.length === print.length) {
+    console.log(students.length, print);
+    if (!(students.length === print.length)) {
       res.send({
         message: "Please Pass valid student",
       });
